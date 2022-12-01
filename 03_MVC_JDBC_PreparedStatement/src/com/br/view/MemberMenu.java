@@ -42,11 +42,11 @@ public class MemberMenu {
 			switch(menu) {
 			case 1 : inputMember(); break;
 			case 2 : mc.selectList(); break;
-			case 3 : String userId = inputMemberId();
-					 mc.selectByUserId(userId);
+			case 3 : //String userId = inputMemberId();
+					 mc.selectByUserId(inputMemberId());
 					 break;
-			case 4 : String keyword = inputMemberName(); 
-			         mc.selectByUserName(keyword);
+			case 4 : //String keyword = inputMemberName(); 
+			         mc.selectByUserName(inputMemberName());
 			         break;
 			case 5 : updateMember(); break;
 			case 6 : mc.deleteMember(inputMemberId()); break;
