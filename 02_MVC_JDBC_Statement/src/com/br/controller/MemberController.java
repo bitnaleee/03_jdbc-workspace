@@ -18,6 +18,7 @@ public class MemberController {
 	 * 사용자의 회원 추가 요청을 처리해주는 메소드
 	 * @param userId ~ hobby - 사용자가 입력했던 정보들이 담겨있음
 	 */
+	// 1. 회원추가
 	public void insertMember(String userId, String userPwd, String userName, 
 							 String gender, String age, String email,
 							 String phone, String address, String hobby) {
@@ -38,6 +39,7 @@ public class MemberController {
 		
 	}
 	
+	// 2. 회원 전체 추가
 	public void selectList() {
 		
 		ArrayList<Member> list = new MemberDao().selectList();
@@ -51,6 +53,7 @@ public class MemberController {
 	
 	}
 	
+	// 3. 회원 아이디 검색
 	public void selectByUserId(String userId) {
 		Member m = new MemberDao().selectByUserId(userId);
 		
@@ -62,6 +65,7 @@ public class MemberController {
 		
 	}
 	
+	// 4. 회원 이름으로 키워드 검색
 	public void selectByUserName(String keyword) {
 		ArrayList<Member> list = new MemberDao().selectByUserName(keyword);
 		
@@ -72,19 +76,23 @@ public class MemberController {
 		}
 	
 	}
-		
+	
+	// 5. 회원 정보 변경
 	public void updateMember(String userId,
 			                 String userPwd,
 			                 String email,
 			                 String phone,
 			                 String address) {
-		
+		/*
 		Member m = new Member();
 		m.setUserId(userId);
 		m.setUserPwd(userPwd);
 		m.setEmail(email);
 		m.setPhone(phone);
 		m.setAddress(address);
+		*/
+		
+		Member m = new Member(userId, userPwd, email, phone, address);	// Member에 필드 추가
 		
 		int result = new MemberDao().updateMember(m);
 		
@@ -95,7 +103,8 @@ public class MemberController {
 		}
 		
 	}
-		
+	
+	// 6. 회원 탈퇴
 	public void deleteMember(String userId) {
 		int result = new MemberDao().deleteMember(userId);
 	
@@ -107,22 +116,4 @@ public class MemberController {
 		
 	}
 		
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 }

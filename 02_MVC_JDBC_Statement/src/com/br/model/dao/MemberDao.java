@@ -12,7 +12,8 @@ import com.br.model.vo.Member;
 // Dao : DB에 직접 접근해서 사용자의 요청에 맞는 sql문 실행 후 결과 받기 (JDBC과정)
 //       결과를 Controller로 반환
 public class MemberDao {
-
+	
+	// 1. 회원추가
 	public int insertMember(Member m) {
 		
 		// insert문 => 처리된행수(int) => 트랜잭션처리
@@ -69,7 +70,7 @@ public class MemberDao {
 		return result;	// 1 아니면 0 반환
 	
 	}
-	
+	// 2. 회원 전체 조회
 	public ArrayList<Member> selectList() {
 		// select문(여러행 조회) => ResultSet객체 => ArrayList에 차곡차곡 담기
 		
@@ -127,6 +128,7 @@ public class MemberDao {
 		
 	}
 	
+	// 3. 회원 아이디 검색
 	public Member selectByUserId(String userId) {
 		
 		// select문(한행) => ResultSet객체 => Member객체
@@ -184,6 +186,7 @@ public class MemberDao {
 		
 	}
 	
+	// 4. 회원 이름으로 키워드 검색
 	public ArrayList<Member> selectByUserName(String keyword) {
 
 		// select문(여러행) => ResultSet객체 => ArrayList<Member> 객체
@@ -209,18 +212,18 @@ public class MemberDao {
 			rset = stmt.executeQuery(sql);
 			// 6) 조회결과 뽑아서 자바객체에 옮겨담기
 			// 현재 rset이 참조하고 있는 해당 행의 데이터들을 뽑아서 => Member객체에 담고 => list에 추가
-			while(rset.next()) {list.add(new Member ( rset.getInt("user_no"),
-											  rset.getString("user_id"),
-											  rset.getString("user_pwd"),
-											  rset.getString("USER_NAME"),
-											  rset.getString("gender"),
-											  rset.getInt("age"),
-											  rset.getString("email"),
-											  rset.getString("phone"),
-											  rset.getString("address"),
-											  rset.getString("hobby"),
-											  rset.getDate("enroll_date")));
-			}
+			while(rset.next()) { list.add(new Member ( rset.getInt("user_no"),
+											           rset.getString("user_id"),
+											           rset.getString("user_pwd"),
+													   rset.getString("USER_NAME"),
+													   rset.getString("gender"),
+													   rset.getInt("age"),
+													   rset.getString("email"),
+												       rset.getString("phone"),
+													   rset.getString("address"),
+												       rset.getString("hobby"),
+													   rset.getDate("enroll_date")));
+						}
 			
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
@@ -239,6 +242,7 @@ public class MemberDao {
 		return list;
 	}
 	
+	// 5. 회원 정보 변경
 	public int updateMember(Member m) {
 		
 		// update문 => 처리된행수(int) => 트랜잭션 처리
@@ -296,6 +300,7 @@ public class MemberDao {
 		 
 	}
 	
+	// 6. 회원 탈퇴
 	public int deleteMember(String userId) {
 		
 		//delete문 => 처리된행수(int) => 트랜잭션 처리
@@ -335,13 +340,5 @@ public class MemberDao {
 		return result;
 		
 	}
-	
-	
-	
-	
-	
-	
-	
-	
 	
 }

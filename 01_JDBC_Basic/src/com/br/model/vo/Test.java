@@ -16,7 +16,7 @@ public class Test {
 		this.testName = testName;
 		this.testDate = testDate;
 	}
-
+	
 	public int getTestNo() {
 		return testNo;
 	}
@@ -45,5 +45,5 @@ public class Test {
 	public String toString() {
 		return "Test [testNo=" + testNo + ", testName=" + testName + ", testDate=" + testDate + "]";
 	}
-	
+
 }

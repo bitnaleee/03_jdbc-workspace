@@ -19,9 +19,10 @@ public class D_Update {
 		/*
 		String sql = "UPDATE TEST "
 				   +    "SET TNAME = '안녕' "
-				   +  "WHERE TNO = 4";
+				   +  "WHERE TNO = 2";
 		// 공백중요 
 		 */
+		
 		Scanner sc = new Scanner(System.in);
 		System.out.print("수정하고자하는 번호 : ");
 		int no = sc.nextInt();

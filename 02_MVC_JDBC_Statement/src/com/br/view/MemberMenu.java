@@ -8,11 +8,6 @@ import com.br.model.vo.Member;
 
 // View : 사용자가 보게 될 시각적인 요소
 //	      출력(print) 및 입력(Scanner)
-
-/**
- * @author GDJ57
- *
- */
 public class MemberMenu {
 	
 	private Scanner sc = new Scanner(System.in);
@@ -41,7 +36,7 @@ public class MemberMenu {
 			
 			switch(menu) {
 			case 1 : inputMember(); break;
-			case 2 : mc.selectList(); break;
+			case 2 : mc.selectList(); break;	// 바로 Controller
 			case 3 : String userId = inputMemberId();
 					 mc.selectByUserId(userId);
 					 break;
@@ -57,11 +52,12 @@ public class MemberMenu {
 		}
 		
 	}
-	
+
 	/**
 	 * 회원 추가 창 (서브화면)
 	 * 추가하고자 하는 회원의 정보를 입력 받아서 추가요청을 보내는 창
 	 */
+	// 1. 회원추가
 	public void inputMember() {
 		System.out.println("\n==== 회원 추가 ====");
 		
@@ -103,6 +99,7 @@ public class MemberMenu {
 	 * 사용자에게 회원 아이디 입력받은 후 그 때 입력된 값을 반환시켜주는 메소드
 	 * @return	사용자가 입력한 아이디값
 	 */
+	// 3. 회원 아이디 검색
 	public String inputMemberId() {
 		System.out.print("\n회원 아이디 입력 : ");
 		return sc.nextLine();
@@ -112,6 +109,7 @@ public class MemberMenu {
 	 * 사용자에게 검색할 회원명 입력받은 후 그 때 입력된 값을 반환시켜주는 메소드
 	 * @return	사용자가 입력한 회원명(키워드)
 	 */
+	// 4. 회원 이름으로 키워드 검색
 	public String inputMemberName() {
 		System.out.print("\n회원 이름(키워드) 입력 : ");
 		return sc.nextLine();
@@ -121,6 +119,7 @@ public class MemberMenu {
 	 * 회원 정보 변경 창
 	 * 회원 아이디 입력받기, 변경할정보들(비번, 이메일, 전화번호, 주소)
 	 */
+	// 5. 회원 정보 변경
 	public void updateMember() {
 		
 		System.out.println("\n==== 회원 정보 변경 ====");
@@ -142,19 +141,7 @@ public class MemberMenu {
 		
 		mc.updateMember(userId, userPwd, email, phone, address);
 		
-		
-		
-		
-		
-		
-		
-		
-		
 	}
-	
-	
-	
-	
 	
 	
 	//------------------------------ 응답 화면 ------------------------------------
@@ -210,9 +197,5 @@ public class MemberMenu {
 		System.out.println("\n조회된 데이터는 다음과 같습니다.\n");
 		System.out.println(m);
 	}
-	
-	
-	
-	
 	
 }
