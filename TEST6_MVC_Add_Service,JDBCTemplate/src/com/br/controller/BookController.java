@@ -8,7 +8,7 @@ public class BookController {
 	public void insertBook(String title, String author, String publisher,
 			               String price, String stock) {
 		
-		Member m = new Member(title, author, publisher, price, stock);
+		//Member m = new Member(title, author, publisher, price, stock);
 		
 		
 		
